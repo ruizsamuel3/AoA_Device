@@ -97,10 +97,14 @@ void processShell(){
     }
 void sampleMicrophoneIsr(){
     count++;
-    int16_t value = readAdc0Ss1();
+    int16_t val = readAdc0Ss1(1);
+    val = readAdc0Ss1(2);
+    val = readAdc0Ss1(3);
+    val = readAdc0Ss1(4);
     char* test;
     sprintf(test,"Value: %d\r",count);
     putsUart0(test);
+    putsUart0("test\r");
 }
 int main(void){
 
