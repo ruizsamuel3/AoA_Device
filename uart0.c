@@ -53,6 +53,11 @@ void initUart0(void)
     // Configure UART0 with default baud rate
     UART0_CTL_R = 0;                                    // turn-off UART0 to allow safe programming
     UART0_CC_R = UART_CC_CS_SYSCLK;                     // use system clock (usually 40 MHz)
+    UART0_IBRD_R = 21;                                  // r = 40 MHz / (Nx115.2kHz), set floor(r)=21, where N=16
+    UART0_FBRD_R = 45;                                  // round(fract(r)*64)=45
+    UART0_LCRH_R = UART_LCRH_WLEN_8 | UART_LCRH_FEN;    // configure for 8N1 w/ 16-level FIFO
+    UART0_CTL_R = UART_CTL_TXE | UART_CTL_RXE | UART_CTL_UARTEN;
+                                                        // enable TX, RX, and module
 }
 
 // Set baud rate as function of instruction cycle frequency
