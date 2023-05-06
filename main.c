@@ -1,7 +1,7 @@
 /*
  * Embedded II Project
  * adc seq samp 0
- *
+ * Samuel Ruiz
  */
 //-----------------------------------------------------------------------------
 // Device includes, defines, and assembler directives
